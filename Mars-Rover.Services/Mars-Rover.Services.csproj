@@ -5,4 +5,8 @@
     <RootNamespace>Mars_Rover.Services</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Mars-Rover.Models\Mars-Rover.Models.csproj" />
+  </ItemGroup>
+
 </Project>

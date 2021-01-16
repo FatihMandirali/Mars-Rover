@@ -12,6 +12,8 @@ namespace Mars_Rover.Models
     {
         [HttpStatusCode(HttpStatusCode.OK)]
         Success = 200,
+        [HttpStatusCode(HttpStatusCode.BadRequest)]
+        BadRequest = 400,
        
 
     }

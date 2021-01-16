@@ -1,3 +1,5 @@
+using Mars_Rover.Services;
+using Mars_Rover.Services.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +11,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Mars_Rover
@@ -31,6 +34,9 @@ namespace Mars_Rover
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mars_Rover", Version = "v1" });
             });
+            services.AddMvc().AddJsonOptions(opts =>{opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());});
+            services.AddTransient<ILocationService, LocationService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
